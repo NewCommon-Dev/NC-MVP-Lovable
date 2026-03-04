@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Tiro+Devanagari+Hindi&display=swap');
+
+@font-face {
+  font-family: 'League Gothic';
+  src: url('./assets/fonts/LeagueGothic-Regular-VariableFont_wdth.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 20% 95%;
+    --foreground: 0 0% 5%;
+
+    --card: 45 15% 92%;
+    --card-foreground: 0 0% 5%;
+
+    --popover: 45 20% 95%;
+    --popover-foreground: 0 0% 5%;
+
+    --primary: 0 0% 5%;
+    --primary-foreground: 45 20% 95%;
+
+    --secondary: 27 100% 55%;
+    --secondary-foreground: 0 0% 5%;
+
+    --muted: 40 10% 85%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 220 75% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 80% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 40 10% 85%;
+    --ring: 0 0% 5%;
+
+    --radius: 0rem;
+
+    /* Custom editorial palette */
+    --saffron: 27 100% 55%;
+    --red: 0 80% 50%;
+    --cobalt: 220 75% 50%;
+    --lemon: 27 100% 55%;
+    --cream: 45 20% 95%;
+    --ink: 0 0% 5%;
+    --stone: 40 5% 65%;
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 45 20% 95%;
+    --sidebar-primary: 27 100% 55%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 220 75% 50%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 27 100% 55%;
+
+    /* Typography */
+    --font-display: 'League Gothic', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 45 20% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 45 20% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 45 20% 95%;
+    --primary: 45 20% 95%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 27 100% 55%;
+    --secondary-foreground: 0 0% 5%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 40 5% 65%;
+    --accent: 220 75% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 80% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 30%;
+    --input: 0 0% 18%;
+    --ring: 45 20% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .font-devanagari {
+    font-family: 'Tiro Devanagari Hindi', serif;
+  }
+
+  .text-editorial-xl {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 12vw, 12rem);
+    line-height: 0.85;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .text-editorial-lg {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .text-editorial-md {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .color-block-saffron {
+    background-color: hsl(var(--saffron));
+    color: hsl(var(--ink));
+  }
+
+  .color-block-red {
+    background-color: hsl(var(--red));
+    color: hsl(var(--cream));
+  }
+
+  .color-block-cobalt {
+    background-color: hsl(var(--cobalt));
+    color: hsl(var(--cream));
+  }
+
+  .color-block-lemon {
+    background-color: hsl(var(--lemon));
+    color: hsl(var(--ink));
+  }
+
+  .color-block-ink {
+    background-color: hsl(var(--ink));
+    color: hsl(var(--cream));
+  }
+
+  .bauhaus-border {
+    border: 3px solid hsl(var(--ink));
+  }
+
+  .editorial-grid {
+    display: grid;
+    gap: 3px;
+    background-color: hsl(var(--ink));
+  }
+
+  .editorial-grid > * {
+    background-color: hsl(var(--cream));
+  }
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* Noise texture overlay */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
